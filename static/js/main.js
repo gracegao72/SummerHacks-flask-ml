@@ -34,6 +34,7 @@ $(document).ready(function(){
   navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
     video.srcObject = stream;
     localMediaStream = stream;
+    $('#imageElement')[0].src = '/video_feed'
 
     setInterval(function () {
       sendSnapshot();
@@ -50,17 +51,17 @@ $(document).ready(function(){
 // every 1000 ms (e.g. 1 second) 
 ///////////////////////////////////////////////////////////////////////////
 
-function getDetection(){
-  var settings = {
-    "url": "/detection_feed",
-    "method": "GET",
-    "timeout": 0,
-  };
+// function getDetection(){
+//   var settings = {
+//     "url": "/detection_feed",
+//     "method": "GET",
+//     "timeout": 0,
+//   };
   
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
-  setTimeout(getDetection, 1000);
-}
+//   $.ajax(settings).done(function (response) {
+//     console.log(response);
+//   });
+//   setTimeout(getDetection, 1000);
+// }
 
-getDetection();
+// getDetection();
