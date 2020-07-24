@@ -51,17 +51,17 @@ $(document).ready(function(){
 // every 1000 ms (e.g. 1 second) 
 ///////////////////////////////////////////////////////////////////////////
 
-// function getDetection(){
-//   var settings = {
-//     "url": "/detection_feed",
-//     "method": "GET",
-//     "timeout": 0,
-//   };
+function checkPosition(){
+  var settings = {
+    "url": "/check_position",
+    "method": "GET",
+    "timeout": 0,
+  };
   
-//   $.ajax(settings).done(function (response) {
-//     console.log(response);
-//   });
-//   setTimeout(getDetection, 1000);
-// }
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+  setTimeout(checkPosition, 1000);
+}
 
-// getDetection();
+checkPosition();

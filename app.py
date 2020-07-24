@@ -9,6 +9,7 @@ import httplib2
 import requests
 
 from camera import Camera
+from utils import base64_to_pil_image, pil_image_to_base64
 
 
 ########################################################################
@@ -35,8 +36,8 @@ camera = Camera()
 @socketio.on('input image', namespace='/test')
 def test_message(input):
     input = input.split(",")[1]
+    print('got image on server')
     camera.enqueue_input(input)
-    #camera.enqueue_input(base64_to_pil_image(input))
 
 @socketio.on('connect', namespace='/test')
 def test_connect():
@@ -58,19 +59,19 @@ def index():
 #  This is a route that gives you the processed image from the server.
 #  When placed into the src attribute of an image tag, you get video.
 ########################################################################
-def gen():
-    """Video streaming generator function."""
+# def gen():
+#     """Video streaming generator function."""
 
-    app.logger.info("starting to generate frames!")
-    while True:
-        frame = camera.get_frame() #pil_image_to_base64(camera.get_frame())
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+#     app.logger.info("starting to generate frames!")
+#     while True:
+#         frame = camera.get_frame() #pil_image_to_base64(camera.get_frame())
+#         yield (b'--frame\r\n'
+#                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
-@app.route('/video_feed')
-def video_feed():
-    """Video streaming route. Put this in the src attribute of an img tag."""
-    return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
+# @app.route('/video_feed')
+# def video_feed():
+#     """Video streaming route. Put this in the src attribute of an img tag."""
+#     return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 ########################################################################
 #  ML detection route
@@ -78,14 +79,19 @@ def video_feed():
 #  By calling this route on a timer you can get a continous stream
 ########################################################################
 
-# @app.route('/detection_feed')
-# def detection_feed():
-#     frame = camera.get_frame()
-#     # process the image here
-#     resp = {}
-#     resp["hand_detection"] = True
-#     resp["posture"] = "slouching"
-#     return jsonify(resp)
+defaultResp = {}
+defaultResp["hand_detection"] = True
+defaultResp["posture"] = "slouching"
+
+@app.route('/check_position')
+def detection_feed():
+    frame = camera.get_frame()
+    if frame is None:
+        jsonify(defaultResp)
+    imageFrame = base64_to_pil_image(frame)
+    # results = checkPosition(imageFrame)
+    # defaultResp["posture"] = results["posture"]
+    return jsonify(defaultResp)
 
 
 ########################################################################
