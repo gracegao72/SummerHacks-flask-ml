@@ -34,7 +34,6 @@ $(document).ready(function(){
   navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
     video.srcObject = stream;
     localMediaStream = stream;
-    // $('#imageElement')[0].src = '/video_feed'
 
     setInterval(function () {
       sendSnapshot();
