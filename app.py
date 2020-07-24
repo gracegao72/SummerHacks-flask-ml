@@ -9,6 +9,7 @@ import httplib2
 import requests
 
 from camera import Camera
+from positionChecker import PositionChecker
 from utils import base64_to_pil_image, pil_image_to_base64
 
 
@@ -25,6 +26,7 @@ socketio = SocketIO(app)
 ########################################################################
 
 camera = Camera()
+positionChecker = PositionChecker()
 
 
 ########################################################################
@@ -88,8 +90,7 @@ def detection_feed():
     frame = camera.get_frame()
     if frame is None:
         jsonify(defaultResp)
-    imageFrame = base64_to_pil_image(frame)
-    # results = checkPosition(imageFrame)
+    results = checkPosition(imageFrame)
     # defaultResp["posture"] = results["posture"]
     return jsonify(defaultResp)
 
