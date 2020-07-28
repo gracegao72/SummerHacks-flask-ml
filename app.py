@@ -89,7 +89,7 @@ defaultResp["posture"] = "slouching"
 def detection_feed():
     frame = camera.get_frame()
     if frame is None:
-        jsonify(defaultResp)
+        return jsonify(defaultResp)
     results = positionChecker.check_position(frame)
     defaultResp["posture"] = results
     return jsonify(defaultResp)
