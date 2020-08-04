@@ -38,7 +38,7 @@ positionChecker = positionCheck.PositionChecker()
 @socketio.on('input image', namespace='/test')
 def test_message(input):
     input = input.split(",")[1]
-    print('got image on server')
+    #print('got image on server')
     camera.enqueue_input(input)
 
 @socketio.on('connect', namespace='/test')
@@ -89,9 +89,9 @@ defaultResp["posture"] = "slouching"
 def detection_feed():
     frame = camera.get_frame()
     if frame is None:
-        jsonify(defaultResp)
-    results = positionChecker.checkPosition(frame)
-    defaultResp["posture"] = results["posture"]
+        return jsonify(defaultResp)
+    results = positionChecker.check_position(frame)
+    defaultResp["posture"] = results
     return jsonify(defaultResp)
 
 
