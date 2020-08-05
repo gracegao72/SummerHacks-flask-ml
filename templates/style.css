@@ -1,0 +1,452 @@
+
+#container {
+    margin: 0px auto;
+    border: 10px #333 solid;
+}
+#videoElement {
+    width: 640px;
+    height: 480px;
+    background-color: #666;
+}
+
+#imageElement {
+    width: 640px;
+    height: 480px;
+    background-color: #666;
+}
+
+#canvasElement {
+    width: 640px;
+    height: 480px;
+    display: none;
+}
+
+/*@media (max-width: 575.98px) {
+}*/
+
+html{
+	scroll-behavior: smooth;  
+}
+
+body{
+	margin: 0;
+	font-family: 'Nunito', sans-serif;
+	font-size: 18px; 
+	line-height: 35px; 
+	max-width: 100%;
+}
+
+.head-container {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+/* CREATING A NAVIGATION BAR */
+.navbar { 
+  z-index: 9999; 
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
+  text-align: center; 
+  opacity: 0.85;
+  position: fixed; 
+  display: table;  
+  padding: 0px; 
+  line-height: 20px; 
+}
+
+/*.navbar img {
+	height: 100%; 
+	text-align: left; 
+}*/
+
+.navbar-nav {
+	text-align: center; 
+}
+
+/* Style the links inside the navigation bar */
+.nav-link { 
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  vertical-align: center; 
+  padding-top: 15px; 
+  padding-bottom: 15px;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 1px; 
+  font-weight: bold; 
+  font-family: 'Nunito', sans-serif;
+}
+
+.nav-item {
+	padding-left: 10px;
+	padding-right: 10px; 
+}
+
+/* Change the color of links on hover */
+.nav-link:hover {
+  background-color: white; 
+  color: #4184ad;
+}
+
+/* Add a color to the active/current link */
+.nav-link:active {
+  background-color: #4184ad;
+  color: white;
+}
+
+.navbar-collapse {
+  justify-content: center;
+}
+
+
+/* LAYOUT OF HEADER SECTION AND ABOUT ME BUTTON */
+header {
+	/*background-color: #1560FB; */
+	text-align: center; 
+}
+
+header img {
+	background-image: url('Cropped.png');
+	background-size: cover;
+	background-position: center; 
+	position: relative; 
+}
+
+.head-container .hicons{
+	position: absolute;
+	top: 90%;
+	left: 42.5%;
+	display: inline-block;
+}
+
+ /* Style the links inside the navigation bar */
+.header-bttn a { 
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  vertical-align: center; 
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 3px; 
+}
+
+.header-bttn a:hover{
+  background-color: white; 
+  color: #3498db;
+}
+
+.head-container .header-bttn{
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  /*transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);*/
+  background: 0 0; 
+  color: white;
+  padding: 12px 0px;
+  cursor: pointer;
+  border: 3px solid white;
+  font-family: 'Oswald', sans-serif;
+}
+
+.head-container img {
+  width: 100%;
+  height: auto;
+}
+
+.centered{
+	position: absolute;
+	top: 45%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);
+}
+
+.container1 {
+	max-width: 1100px; 
+    margin: 0 auto;
+    padding: 0px;
+   }
+
+.container1 .bttn{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*-ms-transform: translate(-10%, -50%);*/
+  background-color: #f7f7f7;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  /*border-radius: 5px;*/
+}
+
+.container1 .bttn:hover {
+  background-color: white;
+  color: #3498db;
+}
+
+.sectionheader {
+    text-align: center;
+}
+
+/* WELCOME PAGE TEXT */
+header h1{
+	/*font-family: "San Francisco", "Helvetica Neue", sans-serif;*/
+	/*font-family: 'Oxygen', sans-serif;*/
+	font-size: 70px; 
+	color: white;
+	padding-top: 0px; 
+	padding-bottom: 5px; 
+	margin-top: 50px; 
+	margin-bottom: 50px; 
+}
+
+header .subtitle{
+	font-size: 25px; 
+	font-family: 'Gupter', serif;
+	letter-spacing: 1.5px; 
+	font-weight: bold; 
+	color: white; 
+	width: 70%;
+	float: center; 
+	padding-bottom: 35px; 
+	margin: auto; 
+}
+
+/* LAYOUT OF WEBSITE BODY */
+main {
+	text-align: center; 
+}
+
+/* PROFILE PICTURE LAYOUT */
+main img {
+	max-width: 100%; 
+	width: 225px; 
+	height: 225px; 
+	border-radius: 15px; 
+	border: 5px solid #e1f7f7; 
+	/*float:left;*/
+	position: relative;
+	/*margin: 0 20px 20px 0;*/
+}
+
+/* SECTION HEADERS */
+.sectiontitle{
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #555;
+    text-transform: uppercase;
+    /*line-height: 25px;*/
+    /*padding: 20px 0;*/
+}
+
+/*Vanderbilt and McD headings*/
+h4{
+	color: #555; 
+	font-size: 30px; 
+	margin: 10px; 
+}
+
+/* BLUE HEADINGS */
+h5{
+	color: #3498db; 
+	font-size: 22px; 
+	margin-left: 0px; 
+	margin-right: 0px; 
+	margin-bottom: 10px; 
+	margin-top: 10px;  
+	letter-spacing: 1px; 
+}
+
+p{
+	font-size: 20px; 
+	line-height: 25px; 
+	letter-spacing: 1px; 
+	color: #757575;
+	margin: 0; 
+	/*font-family: 'News Cycle', sans-serif;*/
+	/*font-family: 'Gupter', serif;*/
+	font-family: 'Nunito', sans-serif;
+}
+
+/* LINK INFORMATION */
+a{
+	color: #3498db;
+}
+
+a:hover{
+	color: black;
+}
+
+.spacer{
+	background: #3498db;
+	width: 100px;
+    height: 2px;
+    margin: auto;
+}
+
+
+.column {
+  float: right; 
+  height: 100%;
+  /*background-color: #ffffff;*/
+  /*padding-bottom: 25px; */
+}
+
+#page-team-intro .row {
+	color: white;
+}
+#page-team-intro p {
+	color: white; 
+}
+
+#page-team-intro a {
+	box-sizing: border-box;
+	float: center;
+ 	padding-left: 5px; 
+ 	padding-right: 5px; 
+ 	text-align: center; 
+ 	vertical-align: center; 
+ 	font-size: 25px; 
+ 	text-decoration: none; 
+ 	color: white; 
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#page-about{
+	padding-bottom: 50px; 
+	padding-top: 25px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+#page-project-examples{
+	/*background: #f7f7f7;*/
+	background: #e1f7f7;
+	padding-bottom: 50px; 
+	padding-top: 25px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+
+.iconify-1{
+	font-size: 85px; 
+	color: #555;
+	padding: 25px; 
+}
+
+
+#page-team-intro{
+	background: #4184ad;
+	padding-bottom: 50px;
+	padding-top: 25px; 
+	padding-right: 20px; 
+	padding-left: 20px;  
+}
+
+#page-experience{
+	background: #f7f7f7;
+	padding-bottom: 50px; 
+	padding-top: 25px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+#page-projects{
+	padding-bottom: 50px; 
+	padding-top: 25px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+#page-contact{
+	background: #f7f7f7;
+	padding-bottom: 50px; 
+	padding-top: 25px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+
+/* CONTACT BUTTONS */
+.linkedin{
+	padding-left: 250px; 
+}
+
+.email{
+	padding-right: 250px; 
+}
+
+.github, .linkedin, .email {
+	box-sizing: border-box;
+	float: center;
+ 	width: 100%;
+ 	text-align: center; 
+ 	vertical-align: center; 
+ 	font-size: 80px; 
+ 	/*text-decoration: none; */
+}
+
+.github a, .linkedin a, .email a{
+	/*color: #3498db; */
+	color: #4184ad;
+	text-decoration: none; 
+}
+
+.github a:hover, .linkedin a:hover, .email a:hover {
+	color: #555;
+}
+
+/* CODE FOR DETECTION SECTION */
+#page-detect {
+    background: #e1f7f7;
+	padding-bottom: 50px;
+	padding-top: 25px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+/* FOOTER LAYOUT */
+footer {
+	/*background-color: #3498db; */
+	background: #4184ad;
+	text-align: center;
+	color: white;
+	padding: 15px; 
+}
+
+footer p{
+	margin: 0; 
+	color: white; 
+	font-size: 15px; 
+}
