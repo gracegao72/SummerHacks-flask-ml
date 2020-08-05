@@ -12,6 +12,7 @@ import base64
 import numpy as np
 from PIL import Image
 
+#testing
 
 class PositionChecker(object):
     global s
