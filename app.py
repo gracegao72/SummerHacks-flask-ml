@@ -10,6 +10,7 @@ import requests
 
 from camera import Camera
 from positionChecker import positionCheck
+from faceChecker import faceCheck
 from utils import base64_to_pil_image, pil_image_to_base64
 
 
@@ -27,6 +28,7 @@ socketio = SocketIO(app)
 
 camera = Camera()
 positionChecker = positionCheck.PositionChecker()
+faceChecker = faceCheck.FaceChecker()
 
 
 ########################################################################
@@ -82,7 +84,7 @@ def index():
 ########################################################################
 
 defaultResp = {}
-defaultResp["hand_detection"] = True
+defaultResp["hand_detection"] = False
 defaultResp["posture"] = "slouching"
 
 @app.route('/check_position')
@@ -92,6 +94,8 @@ def detection_feed():
         return jsonify(defaultResp)
     results = positionChecker.check_position(frame)
     defaultResp["posture"] = results
+    results = faceChecker.checkPosition(frame)
+    defaultResp["hand_detection"] = results["hand_detection"]
     return jsonify(defaultResp)
 
 
