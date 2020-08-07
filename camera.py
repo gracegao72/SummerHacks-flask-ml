@@ -1,7 +1,4 @@
-import threading
-import binascii
-from time import sleep
-from utils import base64_to_pil_image, pil_image_to_base64
+from utils import base64_to_pil_image
 
 
 class Camera(object):
