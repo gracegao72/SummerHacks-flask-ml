@@ -1,17 +1,9 @@
-from flask import Flask, render_template, request, redirect, jsonify, url_for, flash, Response
+from flask import Flask, render_template, jsonify
 from flask_socketio import SocketIO
-
-import random
-import string
-import logging
-import json
-import httplib2
-import requests
 
 from camera import Camera
 from positionChecker import positionCheck
 from faceChecker import faceCheck
-from utils import base64_to_pil_image, pil_image_to_base64
 
 
 ########################################################################
