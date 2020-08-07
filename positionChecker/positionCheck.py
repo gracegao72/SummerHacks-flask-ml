@@ -2,15 +2,6 @@ import cv2
 import dlib
 import numpy as np
 from imutils import face_utils
-import sys
-import base64
-
-### CONVERTING IMAGE FROM BASE64
-import io
-import cv2
-import base64 
-import numpy as np
-from PIL import Image
 
 #testing
 
