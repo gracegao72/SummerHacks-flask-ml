@@ -1,0 +1,584 @@
+/* * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  } */
+  
+  :root {
+	  /* font color  */
+	--primary-color: #005a92;
+	/* background color */
+	--secondary-color: #e1f7f7;
+	/* covered background color */
+	--complimentary-color: #4184ad; 
+	/* --primary-color: #4184ad;
+  	--secondary-color: #D93BA1;
+  	--complimentary-color: #2E2473; */
+  }
+  
+  .container1 {
+	min-height: 100vh;
+	position: relative;
+	width: 100vw;
+	display: flex;
+	background-color: var(--complimentary-color);
+	justify-content: center;
+	align-items: center;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   	position: relative;
+  }
+  
+  .container1 p {
+	  font-size: 30px;
+	  font-weight: 500;
+	  color: var(--primary-color);
+	  transform: translateY(-600px);
+	  animation: 1.2s slideIn ease-in-out forwards 1s;
+	  z-index: 10;
+	  opacity: 0;
+	  position: relative;
+  }
+  
+  h1 {
+	font-size: 125px;
+	/* font-family: 'Permanent Marker', cursive; */
+	font-family: 'Nunito', sans-serif;
+	font-weight: 700;
+	color: var(--primary-color);
+	transform: translateY(-600px);
+	animation: 1.2s slideIn ease-in-out forwards 1s;
+	z-index: 10;
+	opacity: 0;
+	position: relative;
+  }
+  
+  h1::before {
+	  content: '';
+	  width: 0%;
+	  height: 76px;
+	  background-color: var(--secondary-color);
+	  position: absolute;
+	  bottom: -10px;
+	  animation: 1s underline ease-in-out forwards 2s;
+	  mix-blend-mode: color;
+  }
+  
+  .overlay {
+	  position: absolute;
+	  width: 100%;
+	  top: 0;
+	  bottom: 0;
+	  opacity: 0;
+	  left: 0;
+	  right: 0;
+	  background-color: var(--secondary-color);
+	  transform: scale(.5);
+	  animation: .5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+  }
+  
+  @keyframes skewBg {
+	0% {
+	  transform: scale(.5);
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+  
+  @keyframes underline {
+	100% {
+	  width: 100%;
+	  /* color: #2E2473; */
+	}
+  }
+  
+  @keyframes slideIn {
+	100% {
+	  transform: translateY(0px);
+	  opacity: 1;
+	}
+  }
+
+
+
+
+#container {
+    margin: 0px auto;
+    border: 10px #333 solid;
+}
+#videoElement {
+    width: 640px;
+    height: 480px;
+    background-color: #666;
+}
+
+#imageElement {
+    width: 640px;
+    height: 480px;
+    background-color: #666;
+}
+
+#canvasElement {
+    width: 640px;
+    height: 480px;
+    display: none;
+}
+
+/*@media (max-width: 575.98px) {
+}*/
+
+html{
+	scroll-behavior: smooth;  
+}
+
+body{
+	margin: 0;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 300;
+	font-size: 18px; 
+	line-height: 35px; 
+	max-width: 100%;
+}
+/* 
+.head-container {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
+
+
+/* CREATING A NAVIGATION BAR */
+.navbar { 
+  z-index: 9999; 
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  /* text-align: right;  */
+  opacity: 0.85;
+  position: fixed; 
+  display: table;  
+  padding: 0px; 
+  line-height: 50px; 
+}
+
+/*.navbar img {
+	height: 100%; 
+	text-align: left; 
+}*/
+
+.navbar-nav {
+	text-align: right; 
+	float: right;
+	width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.nav-link { 
+  float: center;
+  color: #4184ad;
+  /* text-align: right; */
+  vertical-align: center; 
+  padding-top: 25px; 
+  padding-bottom: 25px;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 1px; 
+  font-weight: bold; 
+  font-family: 'Nunito', sans-serif;
+  /* font-weight: 500; */
+}
+
+.nav-item {
+	padding-left: 10px;
+	padding-right: 10px; 
+}
+
+/* Change the color of links on hover */
+.nav-link:hover {
+  background-color: white; 
+  color: #4184ad;
+}
+
+/* Add a color to the active/current link */
+.nav-link:active {
+  background-color: #4184ad;
+  color: white;
+}
+
+.navbar-collapse {
+  justify-content: center;
+}
+
+
+/* LAYOUT OF HEADER SECTION AND ABOUT ME BUTTON */
+header {
+	/*background-color: #1560FB; */
+	text-align: center; 
+}
+
+header img {
+	background-image: url('Cropped.png');
+	background-size: cover;
+	background-position: center; 
+	position: relative; 
+}
+
+.head-container {
+	width: 100%;
+	height: 800px;
+}
+/* .head-container .hicons{
+	position: absolute;
+	top: 90%;
+	left: 42.5%;
+	display: inline-block;
+} */
+
+ 
+/* .header-bttn a { 
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  vertical-align: center; 
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 3px; 
+} */
+
+/* .header-bttn a:hover{
+  background-color: white; 
+  color: #3498db;
+} */
+
+/* .head-container .header-bttn{
+  position: absolute;
+  top: 92%;
+  left: 50%; */
+  /*transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);*/
+  /* background: 0 0; 
+  color: white;
+  padding: 12px 0px;
+  cursor: pointer;
+  border: 3px solid white;
+  font-family: 'Oswald', sans-serif;
+} */
+
+.head-container img {
+  width: 100%;
+  height: auto;
+}
+
+.centered{
+	position: absolute;
+	top: 45%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);
+}
+
+
+
+/* .container1 .bttn{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f7f7f7;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+} */
+
+/* .container1 .bttn:hover {
+  background-color: white;
+  color: #3498db;
+} */
+
+.sectionheader {
+    text-align: center;
+}
+
+/* WELCOME PAGE TEXT */
+/* header h1{
+	font-size: 70px; 
+	color: white;
+	padding-top: 0px; 
+	padding-bottom: 5px; 
+	margin-top: 50px; 
+	margin-bottom: 50px; 
+} */
+
+header .subtitle{
+	font-size: 25px; 
+	font-family: 'Gupter', serif;
+	letter-spacing: 1.5px; 
+	font-weight: bold; 
+	color: white; 
+	width: 70%;
+	float: center; 
+	padding-bottom: 35px; 
+	margin: auto; 
+}
+
+/* LAYOUT OF WEBSITE BODY */
+main {
+	text-align: center; 
+}
+
+
+
+/* SECTION HEADERS */
+.sectiontitle{
+    font-size: 2.5em;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #555;
+    /* text-transform: uppercase; */
+    /*line-height: 25px;*/
+    /*padding: 20px 0;*/
+}
+
+/*Vanderbilt and McD headings*/
+h4{
+	color: #555; 
+	font-size: 30px; 
+	margin: 10px; 
+}
+
+/* BLUE HEADINGS */
+h5{
+	color: #3498db; 
+	font-size: 22px; 
+	margin-left: 0px; 
+	margin-right: 0px; 
+	margin-bottom: 10px; 
+	margin-top: 10px;  
+	letter-spacing: 1px; 
+}
+
+p{
+	font-size: 20px; 
+	line-height: 25px; 
+	letter-spacing: 1px; 
+	color: #757575;
+	margin: 0; 
+	/*font-family: 'News Cycle', sans-serif;*/
+	/*font-family: 'Gupter', serif;*/
+	font-family: 'Nunito', sans-serif;
+	font-weight: 300;
+}
+
+/* LINK INFORMATION */
+a{
+	color: #3498db;
+}
+
+a:hover{
+	color: black;
+}
+
+.spacer{
+	background: #4184ad;
+	width: 100px;
+    height: 2px;
+	margin: auto;
+	margin-bottom: 25px;
+}
+
+
+.column {
+  float: right; 
+  height: 100%;
+  /*background-color: #ffffff;*/
+  /*padding-bottom: 25px; */
+}
+
+#page-team-intro .row {
+	color: white;
+}
+#page-team-intro p {
+	/* color: #4184ad;  */
+	color: #555;
+	/* font-weight: bold; */
+}
+
+h3 {
+	color: #555;
+	font-size: 20;
+}
+
+#page-team-intro a {
+	box-sizing: border-box;
+	float: center;
+ 	padding-left: 5px; 
+ 	padding-right: 5px; 
+ 	text-align: center; 
+ 	vertical-align: center; 
+ 	font-size: 25px; 
+ 	text-decoration: none; 
+ 	color: #555; 
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#page-about{
+	padding-bottom: 50px; 
+	padding-top: 0px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+#page-about img {
+	/* max-width: 100%;   */
+	height: 350px; 
+	width: auto;
+	position: relative;
+}
+
+#page-project-examples{
+	/*background: #f7f7f7;*/
+	background: #e1f7f7;
+	padding-bottom: 50px; 
+	padding-top: 50px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+#page-project-examples img {
+	max-width: 100%; 
+	width: 400px; 
+	height: 300px; 
+	position: relative;
+}
+
+.iconify-1{
+	font-size: 85px; 
+	color: #555;
+	padding: 25px; 
+}
+
+
+#page-team-intro{
+	/* background: #4184ad; */
+	background: #e1f7f7;
+	padding-bottom: 50px;
+	padding-top: 50px; 
+	padding-right: 20px; 
+	padding-left: 20px;  
+}
+
+.card img {
+	max-width: 100%; 
+	width: 200px; 
+	height: 200px; 
+	border-radius: 150px; 
+	position: relative;
+	float: center;
+}
+
+#page-team-intro .card {
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: .25rem;
+	padding: 15px; 
+}
+#page-experience{
+	background: #f7f7f7;
+	padding-bottom: 50px; 
+	padding-top: 50px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+#page-projects{
+	padding-bottom: 50px; 
+	padding-top: 50px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+#page-contact{
+	/* background: #f7f7f7; */
+	background: white;
+	padding-bottom: 50px; 
+	padding-top: 50px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+
+/* CONTACT BUTTONS */
+.linkedin{
+	padding-left: 250px; 
+}
+
+.email{
+	padding-right: 250px; 
+}
+
+.github, .linkedin, .email {
+	box-sizing: border-box;
+	float: center;
+ 	width: 100%;
+ 	text-align: center; 
+ 	vertical-align: center; 
+ 	font-size: 80px; 
+ 	/*text-decoration: none; */
+}
+
+.github a, .linkedin a, .email a{
+	/*color: #3498db; */
+	color: #4184ad;
+	text-decoration: none; 
+}
+
+.github a:hover, .linkedin a:hover, .email a:hover {
+	color: #555;
+}
+
+/* CODE FOR DETECTION SECTION */
+#page-detect {
+	/* background: #e1f7f7; */
+	background: white;
+	padding-bottom: 50px;
+	padding-top: 50px; 
+	padding-right: 20px; 
+	padding-left: 20px; 
+}
+
+/* FOOTER LAYOUT */
+footer {
+	/*background-color: #3498db; */
+	background: #4184ad;
+	text-align: center;
+	color: white;
+	padding: 15px; 
+}
+
+footer p{
+	margin: 0; 
+	color: white; 
+	font-size: 15px; 
+}
