@@ -5,6 +5,7 @@ $(document).ready(function(){
   let ctx = canvas.getContext('2d');
 
   var localMediaStream = null;
+  var playtime = 0;
 
   console.log(location.protocol + '//' + document.domain + ':' + location.port + namespace)
   var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
@@ -93,7 +94,8 @@ function checkPosition(){
     var hand = "Watch your hands";
     var x = new Audio("posture.mp3");
     if (response["posture"] !==  "sitting straight")
-	     x.play();
+       x.play();
+       playtime = playtime+1;
 
   });
   setTimeout(checkPosition, 1000);
