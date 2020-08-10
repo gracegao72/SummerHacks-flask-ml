@@ -227,13 +227,12 @@ header {
 	/*background-color: #1560FB; */
 	text-align: center; 
 }
-
+/* 
 header img {
-	background-image: url('Cropped.png');
 	background-size: cover;
 	background-position: center; 
 	position: relative; 
-}
+} */
 
 .head-container {
 	width: 100%;
