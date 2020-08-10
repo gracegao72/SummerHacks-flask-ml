@@ -92,8 +92,8 @@ function checkPosition(){
     var str = "Watch your posture";
     var hand = "Watch your hands";
     var x = new Audio("posture.mp3");
-    if (response[posture] !==  "sitting straight")
-	x.play();
+    if (response["posture"] !==  "sitting straight")
+	     x.play();
 
   });
   setTimeout(checkPosition, 1000);
