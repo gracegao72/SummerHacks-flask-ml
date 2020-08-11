@@ -1,5 +1,6 @@
 var playtime = 0;
 var counterbeg = 0;
+var indicator = false;
 $(document).ready(function(){
   let namespace = "/test";
   let video = document.querySelector("#videoElement");
@@ -97,9 +98,9 @@ function checkPosition(){
     var z = new Audio("/static/js/hands.mp3")
     var x = new Audio("/static/js/posture.mp3");
     var y = new Audio("/static/js/Cameracantsee.mp3")
-    if (response["posture"] ===  "no image detected") {
+    if (response["posture"] ===  "no image detected" ) {
         counterbeg = counterbeg + 1; 
-        if (counterbeg > 10) {
+        if (counterbeg > 10 || indiator == true) {
           y.play();
       }
        
@@ -110,12 +111,14 @@ function checkPosition(){
     response["hand_detection"] ===  true ){
       z.play();
       playtime = playtime +  1;
+      indicator = true; 
     }
     else if (response["posture"] !==  "sitting straight" 
     && response["posture"] !==  "no image detected"
     && response["hand_detection"] ===  false) {
        x.play();
        playtime = playtime +  1;
+       indicator = true;
     } 
     document.querySelector('.results').innerHTML = playtime;
 
