@@ -3,7 +3,6 @@ from flask_socketio import SocketIO
 
 from camera import Camera
 from positionChecker import positionCheck
-from faceChecker import faceCheck
 
 
 ########################################################################
