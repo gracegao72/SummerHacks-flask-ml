@@ -93,19 +93,27 @@ function checkPosition(){
     //window.speechSynthesis.speak(utter);
     var str = "Watch your posture";
     var hand = "Watch your hands";
-    
+    var z = new Audio("/static/js/hands.mp3")
     var x = new Audio("/static/js/posture.mp3");
     var y = new Audio("/static/js/Cameracantsee.mp3")
     if (response["posture"] ===  "no image detected") {
         y.play();
     }
-    else if (response["posture"] !==  "sitting straight") {
+    else if (response["posture"] !==  "no image detected" &&
+    response["hand_detection"] ===  true ){
+      z.play();
+      playtime = playtime +  1;
+    }
+    else if (response["posture"] !==  "sitting straight" 
+    && response["posture"] !==  "no image detected"
+    && response["hand_detection"] ===  false) {
        x.play();
        playtime = playtime +  1;
     } 
+
     
   });
-  setTimeout(checkPosition, 10000);
+  setTimeout(checkPosition, 60000);
   
 
 }
