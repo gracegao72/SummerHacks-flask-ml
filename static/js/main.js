@@ -110,10 +110,11 @@ function checkPosition(){
        x.play();
        playtime = playtime +  1;
     } 
+    document.querySelector('.results').innerHTML = playtime;
 
     
   });
-  setTimeout(checkPosition, 60000);
+  setTimeout(checkPosition, 10000);
   
 
 }
