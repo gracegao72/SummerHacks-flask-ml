@@ -19,7 +19,6 @@ socketio = SocketIO(app)
 
 camera = Camera()
 positionChecker = positionCheck.PositionChecker()
-faceChecker = faceCheck.FaceChecker()
 
 
 ########################################################################
@@ -85,8 +84,6 @@ def detection_feed():
         return jsonify(defaultResp)
     results = positionChecker.check_position(frame)
     defaultResp["posture"] = results
-    results = faceChecker.checkPosition(frame)
-    defaultResp["hand_detection"] = results["hand_detection"]
     return jsonify(defaultResp)
 
 
