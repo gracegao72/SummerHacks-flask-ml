@@ -1,4 +1,5 @@
 var playtime = 0;
+var counterbeg = 0;
 $(document).ready(function(){
   let namespace = "/test";
   let video = document.querySelector("#videoElement");
@@ -97,8 +98,14 @@ function checkPosition(){
     var x = new Audio("/static/js/posture.mp3");
     var y = new Audio("/static/js/Cameracantsee.mp3")
     if (response["posture"] ===  "no image detected") {
-        y.play();
+        counterbeg = counterbeg + 1; 
+        if (counterbeg > 10) {
+          y.play();
+      }
+       
     }
+   
+
     else if (response["posture"] !==  "no image detected" &&
     response["hand_detection"] ===  true ){
       z.play();
