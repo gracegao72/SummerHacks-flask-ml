@@ -1,3 +1,4 @@
+var playtime = 0;
 $(document).ready(function(){
   let namespace = "/test";
   let video = document.querySelector("#videoElement");
@@ -5,7 +6,7 @@ $(document).ready(function(){
   let ctx = canvas.getContext('2d');
 
   var localMediaStream = null;
-  var playtime = 0;
+  
 
   console.log(location.protocol + '//' + document.domain + ':' + location.port + namespace)
   var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
@@ -92,16 +93,26 @@ function checkPosition(){
     //window.speechSynthesis.speak(utter);
     var str = "Watch your posture";
     var hand = "Watch your hands";
-    var x = new Audio("posture.mp3");
-    if (response["posture"] !==  "sitting straight")
+    
+    var x = new Audio("/static/js/posture.mp3");
+    var y = new Audio("/static/js/Cameracantsee.mp3")
+    if (response["posture"] ===  "no image detected") {
+        y.play();
+    }
+    else if (response["posture"] !==  "sitting straight") {
        x.play();
-       playtime = playtime+1;
-
+       playtime = playtime +  1;
+    } 
+    
   });
-  setTimeout(checkPosition, 1000);
+  setTimeout(checkPosition, 10000);
   
 
 }
 
+function callcheck(){
+  checkPosition();
+}
 
-checkPosition();
+
+
