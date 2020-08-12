@@ -1,6 +1,6 @@
 var playtime = 0;
 var counterbeg = 0;
-
+var indicator = 0;
 $(document).ready(function(){
   let namespace = "/test";
   let video = document.querySelector("#videoElement");
@@ -75,18 +75,21 @@ function checkPosition(){
        
     }
 
-    else if (response["posture"] !==  "sitting straight" 
+    else if (response["posture"] !==  "You are approximatly sitting straight." 
     && response["posture"] !==  "no image detected"
     && response["hand_detection"] ===  false) {
        x.play();
        playtime = playtime +  1;
     } 
     document.querySelector('.results').innerHTML = playtime;
-
+    console.log(indicator);
     
   });
-
-  setTimeout(checkPosition, 10000);
+  
+  if (indicator == 0 ){
+    setTimeout(checkPosition, 1000);
+  }
+  
   
 
 }
@@ -121,13 +124,26 @@ function checkFace(){
     }
 
     document.querySelector('.results').innerHTML = playtime;
-
+    console.log(indicator);
     
   });
-  setTimeout(checkFace, 1000);
+  
+  if (indicator > 0 ){
+    setTimeout(checkFace, 1000);
+  }
+  
   
 
 }
+function setFace(){
+  console.log(1);
+  indicator = indicator + 1 ;
+  console.log(indicator);
+  checkFace();
+}
 
-
+function setPosture(){
+  indicator = 0;
+  checkPosition();
+}
 
