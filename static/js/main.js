@@ -1,4 +1,5 @@
-var playtime = 0;
+var handplaytime = 0;
+var postureplaytime = 0; 
 var counterbeg = 0;
 var indicator = false;
 $(document).ready(function(){
@@ -110,17 +111,18 @@ function checkPosition(){
     else if (response["posture"] !==  "no image detected" &&
     response["hand_detection"] ===  true ){
       z.play();
-      playtime = playtime +  1;
+      handplaytime = handplaytime +  1;
       indicator = true; 
     }
     else if (response["posture"] !==  "sitting straight" 
     && response["posture"] !==  "no image detected"
     && response["hand_detection"] ===  false) {
        x.play();
-       playtime = playtime +  1;
+       postureplaytime = postureplaytime +  1;
        indicator = true;
     } 
-    document.querySelector('.results').innerHTML = playtime;
+    document.querySelector('.results1').innerHTML = handplaytime;
+    document.querySelector('.results2').innerHTML = postureplaytime;
 
     
   });
