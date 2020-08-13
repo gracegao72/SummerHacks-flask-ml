@@ -78,6 +78,14 @@ def index():
 defaultResp = {}
 defaultResp["hand_detection"] = False
 defaultResp["posture"] = "slouching"
+@app.route('/check_face')
+def detection_feed_frame():
+    frame = camera.get_frame()
+    if frame is None:
+        return jsonify(defaultResp)
+    results = faceChecker.checkPosition(frame)
+    defaultResp["hand_detection"] = results["hand_detection"]
+    return jsonify(defaultResp)
 
 @app.route('/check_position')
 def detection_feed():

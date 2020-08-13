@@ -1,6 +1,6 @@
 var playtime = 0;
 var counterbeg = 0;
-var indicator = false;
+var indicator = 0;
 $(document).ready(function(){
   let namespace = "/test";
   let video = document.querySelector("#videoElement");
@@ -62,76 +62,87 @@ function checkPosition(){
   };
   
   $.ajax(settings).done(function (response) {
-    console.log(response);
-    // var available_voices = window.speechSynthesis.getVoices();
-
-    // this will hold an english voice
-    // var english_voice = '';
-
-    // find voice by language locale "en-US"
-    // if not then select the first voice
-    //for(var i=0; i<available_voices.length; i++) {
-    //if(available_voices[i].lang === 'en-US') {
-    //    english_voice = available_voices[i];
-    //    break;
-    //}
-    //}
-    // if(english_voice === '')
-    //english_voice = available_voices[0];
-
-    // new SpeechSynthesisUtterance object
-    //var utter = new SpeechSynthesisUtterance();
-    //utter.rate = 1;
-    // utter.pitch = 0.5;
-    //utter.text = response[posture] + "hand present" + response[hand_detection];
-    //utter.voice = english_voice;
-
-    // event after text has been spoken
-    //utter.onend = function() {
-    //alert('Speech has finished');
-    //}
-
-    // speak
-    //window.speechSynthesis.speak(utter);
-    var str = "Watch your posture";
-    var hand = "Watch your hands";
-    var z = new Audio("/static/js/hands.mp3")
+    console.log(response["posture"]);
+  
+    //var z = new Audio("/static/js/hands.mp3")
     var x = new Audio("/static/js/posture.mp3");
     var y = new Audio("/static/js/Cameracantsee.mp3")
-    if (response["posture"] ===  "no image detected" ) {
+    if (response["posture"] ===  "no image detected") {
         counterbeg = counterbeg + 1; 
-        if (counterbeg > 10 || indiator == true) {
+        if (counterbeg > 10) {
           y.play();
       }
        
     }
-   
 
-    else if (response["posture"] !==  "no image detected" &&
-    response["hand_detection"] ===  true ){
-      z.play();
-      playtime = playtime +  1;
-      indicator = true; 
-    }
-    else if (response["posture"] !==  "sitting straight" 
+    else if (response["posture"] !==  "You are approximatly sitting straight." 
     && response["posture"] !==  "no image detected"
     && response["hand_detection"] ===  false) {
        x.play();
        playtime = playtime +  1;
-       indicator = true;
     } 
     document.querySelector('.results').innerHTML = playtime;
-
+    console.log(indicator);
     
   });
-  setTimeout(checkPosition, 10000);
+  
+  if (indicator == 0 ){
+    setTimeout(checkPosition, 1000);
+  }
+  
   
 
 }
 
-function callcheck(){
-  checkPosition();
+function checkFace(){
+  var settings = {
+    "url": "/check_face",
+    "method": "GET",
+    "timeout": 0,
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response["hand_detection"]);
+    var hand = "Watch your hands";
+    var z = new Audio("/static/js/hands.mp3")
+   //var x = new Audio("/static/js/posture.mp3");
+   // var y = new Audio("/static/js/Cameracantsee.mp3")
+    /*
+    if (response["posture"] ===  "no image detected") {
+        counterbeg = counterbeg + 1; 
+        if (counterbeg > 10) {
+          y.play();
+      }
+       
+    } */
+   
+
+    if (response["posture"] !==  "no image detected" &&
+    response["hand_detection"] ===  true ){
+      z.play();
+      playtime = playtime +  1;
+    }
+
+    document.querySelector('.results').innerHTML = playtime;
+    console.log(indicator);
+    
+  });
+  
+  if (indicator > 0 ){
+    setTimeout(checkFace, 1000);
+  }
+  
+  
+
+}
+function setFace(){
+  indicator = 1 ;
+  console.log(indicator);
+  checkFace();
 }
 
-
+function setPosture(){
+  indicator = 0;
+  checkPosition();
+}
 
