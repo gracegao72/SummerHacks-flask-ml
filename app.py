@@ -86,10 +86,16 @@ def detection_feed():
         return jsonify(defaultResp)
     results = positionChecker.check_position(frame)
     defaultResp["posture"] = results
+    return jsonify(defaultResp)
+
+@app.route('/check_face')
+def detection_feed_frame():
+    frame = camera.get_frame()
+    if frame is None:
+        return jsonify(defaultResp)
     results = faceChecker.checkPosition(frame)
     defaultResp["hand_detection"] = results["hand_detection"]
     return jsonify(defaultResp)
-
 
 ########################################################################
 #  Can ignore
