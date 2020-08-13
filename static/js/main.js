@@ -1,5 +1,6 @@
 var playtime = 0;
 var counterbeg = 0;
+//added indicator
 var indicator = 0;
 $(document).ready(function(){
   let namespace = "/test";
@@ -85,7 +86,7 @@ function checkPosition(){
     console.log(indicator);
     
   });
-  
+  //added indicator if
   if (indicator == 0 ){
     setTimeout(checkPosition, 1000);
   }
@@ -127,7 +128,7 @@ function checkFace(){
     console.log(indicator);
     
   });
-  
+  //added indicator if
   if (indicator > 0 ){
     setTimeout(checkFace, 1000);
   }
@@ -135,12 +136,13 @@ function checkFace(){
   
 
 }
+//added function setface which calls checkface
 function setFace(){
   indicator = 1 ;
   console.log(indicator);
   checkFace();
 }
-
+//added function setposter which calls checkposition
 function setPosture(){
   indicator = 0;
   checkPosition();
