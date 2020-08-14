@@ -491,9 +491,15 @@ h3 {
 
 #page-hand-project-examples img {
 	max-width: 100%; 
-	width: 300px; 
+	width: 350px; 
 	height: 300px; 
 	position: relative;
+}
+
+#page-hand-project-examples p {
+	vertical-align: center;
+	padding-top: 15px;
+	line-height: 30px;
 }
 
 #page-posture-project-examples{
@@ -504,8 +510,11 @@ h3 {
 	padding-right: 20px; 
 	padding-left: 20px; 
 }
+
 #page-posture-project-examples p{
 	vertical-align: center;
+	padding-top: 60px;
+	line-height: 30px;
 }
 
 #page-posture-project-examples img {
