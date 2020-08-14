@@ -88,7 +88,7 @@ function checkPosition(){
        playtime = playtime +  1;
        postureplaytime = postureplaytime+1;
     } 
-    //document.querySelector('.results').innerHTML = playtime;
+    document.querySelector('.results2').innerHTML = postureplaytime;
     console.log(indicator);
     
   });
@@ -120,7 +120,7 @@ function checkFace(){
       handplaytime = handplaytime+1;
     }
 
-    //document.querySelector('.results').innerHTML = playtime;
+    document.querySelector('.results1').innerHTML = handplaytime;
     console.log(indicator);
     
   });
@@ -138,14 +138,14 @@ function setFace()
   indicator = 1 ;
   console.log(indicator);
   checkFace();
-  document.querySelector('.results2').innerHTML = postureplaytime;
+  // document.querySelector('.results2').innerHTML = postureplaytime;
 }
 //added function setposter which calls checkposition
 function setPosture()
 {
   indicator = 0;
   checkPosition();
-  document.querySelector('.results1').innerHTML = handplaytime;
+  // document.querySelector('.results1').innerHTML = handplaytime;
 }
 
   
