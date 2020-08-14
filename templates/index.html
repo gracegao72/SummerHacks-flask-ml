@@ -152,13 +152,15 @@
                                 <img src="{{ url_for('static', filename='images/3.png') }}">
                             </div>
                             <div class = "col-lg-6 col-md-6 col-sm-12">
-                                <p><br>Bad posture is a habit that’s hard to recover from 
+                                <div class = "row">
+                                    <p><br>Bad posture is a habit that’s hard to recover from 
                                     and one that can really hurt your health in the long run. 
                                     To ensure you’re practicing good posture while working 
                                     (or maybe just watching your favorite show) our posture 
                                     detection will notify you if you’re slouched or humped. 
                                     We highly recommend keeping your laptop on a flat surface 
                                     at eye level so the readings are accurate. </p>
+                                </div>
                             </div>
                             
                         </div>
@@ -188,11 +190,11 @@
                                     <button id = "startsound", onclick="setFace()">Start Face</button>
                                 </div>
                             </div>
-                            <!-- <div class = "row">
+                            <div class = "row">
                                 <div class = "col-lg-12 col-md-12 col-sm-12">
-                                    <button id = "stopDetection", onclick="clearTimeout()">Stop Detection</button>
+                                    <button id = "stopDetection", onclick="stop()">Stop Detection</button>
                                 </div>
-                            </div> -->
+                            </div>
                             <canvas id="canvasElement"></canvas>
                             <div class = "row">
                                 <div class = "col-lg-6 col-md-6 col-sm-6">

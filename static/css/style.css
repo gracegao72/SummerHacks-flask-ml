@@ -140,12 +140,12 @@
 	color: #555;
 }
 
-/* #stopDetection {
+#stopDetection {
 	background-color: #e1f7f7;
 	float: center;
 	height: 40px;
 	color: #555;
-} */
+}
 
 /*@media (max-width: 575.98px) {
 }*/
@@ -491,9 +491,14 @@ h3 {
 
 #page-hand-project-examples img {
 	max-width: 100%; 
-	width: 300px; 
+	width: 350px; 
 	height: 300px; 
 	position: relative;
+}
+
+#page-hand-project-examples p {
+	vertical-align: center;
+	padding-top: 40px;
 }
 
 #page-posture-project-examples{
@@ -506,6 +511,7 @@ h3 {
 }
 #page-posture-project-examples p{
 	vertical-align: center;
+	padding-top: 60px;
 }
 
 #page-posture-project-examples img {

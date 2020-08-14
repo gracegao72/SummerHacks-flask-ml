@@ -148,4 +148,20 @@ function setPosture()
   // document.querySelector('.results1').innerHTML = handplaytime;
 }
 
+function stop()
+{
+  // indicator = -1;
+  checkStop(); 
+}
+
+function checkStop()
+{
+  if (indicator === 1) {
+    document.getElementById("startsound").disabled = true
+    // setTimeout(checkStop(), 1000); 
+  } else if (indicator === 0) {
+    document.getElementById("startPosture").disabled = true
+  }
+}
+
   
