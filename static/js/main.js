@@ -94,7 +94,7 @@ function checkPosition(){
   });
   //added indicator if
   if (indicator == 0 ){
-    setTimeout(checkPosition, 10000);
+    setTimeout(checkPosition, 8000);
   }
   
   
@@ -126,7 +126,7 @@ function checkFace(){
   });
   //added indicator if
   if (indicator > 0 ){
-    setTimeout(checkFace, 10000);
+    setTimeout(checkFace, 8000);
   }
   
   
@@ -148,4 +148,7 @@ function setPosture()
   // document.querySelector('.results1').innerHTML = handplaytime;
 }
 
-  
+function stop()
+{
+  indicator = -1;
+}
