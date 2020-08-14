@@ -1,5 +1,5 @@
-//var handplaytime = 0;
-//var postureplaytime = 0; 
+var handplaytime = 0;
+var postureplaytime = 0; 
 
 var playtime = 0;
 var counterbeg = 0;
@@ -86,14 +86,15 @@ function checkPosition(){
     && response["hand_detection"] ===  false) {
        x.play();
        playtime = playtime +  1;
+       postureplaytime = postureplaytime+1;
     } 
-    document.querySelector('.results').innerHTML = playtime;
+    //document.querySelector('.results').innerHTML = playtime;
     console.log(indicator);
     
   });
   //added indicator if
   if (indicator == 0 ){
-    setTimeout(checkPosition, 1000);
+    setTimeout(checkPosition, 10000);
   }
   
   
@@ -111,31 +112,21 @@ function checkFace(){
     console.log(response["hand_detection"]);
     var hand = "Watch your hands";
     var z = new Audio("/static/js/hands.mp3")
-   //var x = new Audio("/static/js/posture.mp3");
-   // var y = new Audio("/static/js/Cameracantsee.mp3")
-    /*
-    if (response["posture"] ===  "no image detected") {
-        counterbeg = counterbeg + 1; 
-        if (counterbeg > 10) {
-          y.play();
-      }
-       
-    } */
-   
-
+  
     if (response["posture"] !==  "no image detected" &&
     response["hand_detection"] ===  true ){
       z.play();
       playtime = playtime +  1;
+      handplaytime = handplaytime+1;
     }
 
-    document.querySelector('.results').innerHTML = playtime;
+    //document.querySelector('.results').innerHTML = playtime;
     console.log(indicator);
     
   });
   //added indicator if
   if (indicator > 0 ){
-    setTimeout(checkFace, 1000);
+    setTimeout(checkFace, 10000);
   }
   
   
@@ -147,10 +138,14 @@ function setFace()
   indicator = 1 ;
   console.log(indicator);
   checkFace();
+  document.querySelector('.results2').innerHTML = postureplaytime;
 }
 //added function setposter which calls checkposition
 function setPosture()
 {
   indicator = 0;
   checkPosition();
+  document.querySelector('.results1').innerHTML = handplaytime;
 }
+
+  
